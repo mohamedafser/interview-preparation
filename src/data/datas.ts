@@ -167,7 +167,7 @@ defer ensures scripts execute after parsing in order, while async executes scrip
     q_category: "html",
   },
   {
-    id: 11,
+    id: 12,
     question: "What is inline elemens?",
     answer:
       "Inline elements only take up as much width as necessary and do not start on a new line. They are used to style or manipulate small portions of text or content within block-level elements.",
@@ -177,7 +177,7 @@ defer ensures scripts execute after parsing in order, while async executes scrip
     q_category: "html",
   },
   {
-    id: 12,
+    id: 13,
     question: "What is box model?",
     answer:
       "The CSS box model is essentially a box that wraps around every HTML element. It consists of: content, padding, borders and margins. The image below illustrates the box model",
@@ -186,7 +186,7 @@ defer ensures scripts execute after parsing in order, while async executes scrip
     reference_link: "https://www.w3schools.com/css/css_boxmodel.asp",
   },
   {
-    id: 13,
+    id: 14,
     question: "What are Pseudo-classes?",
     answer:
       "Pseudo-classes define the special state of an element, allowing you to style it based on conditions like user interaction, its position in the document, or other dynamic states.",
@@ -214,7 +214,7 @@ a:active {
       "https://www.w3schools.com/cssref/css_ref_pseudo_classes.php",
   },
   {
-    id: 14,
+    id: 15,
     question: "What are Pseudo-element?",
     answer:
       "A CSS pseudo-element is used to style specific parts of an element.",
@@ -231,7 +231,7 @@ a:after {
       "https://www.w3schools.com/cssref/css_ref_pseudo_elements.php",
   },
   {
-    id: 15,
+    id: 16,
     question: "What are Combinators?",
     answer:
       "A combinator is a sign that explains the relationship between selectors.",
@@ -240,7 +240,7 @@ a:after {
     reference_link: "https://www.w3schools.com/cssref/css_ref_combinators.php",
   },
   {
-    id: 16,
+    id: 17,
     question: "What are Entities?",
     answer:
       "If you use CSS to display any of these characters in HTML, you can use the CSS entity found in the table below url.",
@@ -249,7 +249,7 @@ a:after {
     reference_link: "https://www.w3schools.com/cssref/css_entities.php",
   },
   {
-    id: 17,
+    id: 18,
     question: "What are Box Sizing?",
     answer:
       "The CSS box-sizing property allows us to include the padding and border in an element's total width and height.",
@@ -258,7 +258,7 @@ a:after {
     reference_link: "https://www.w3schools.com/css/css3_box-sizing.asp",
   },
   {
-    id: 18,
+    id: 19,
     question: "What are Specificity?",
     answer:
       "If there are two or more CSS rules that point to the same element, the selector with the highest specificity will 'win', and its style declaration will be applied to that HTML element.",
@@ -267,7 +267,7 @@ a:after {
     reference_link: "https://www.w3schools.com/css/css_specificity.asp",
   },
   {
-    id: 19,
+    id: 20,
     question: "Difference inline and inline-block?",
     answer:
       "Compared to display: inline, the major difference is that display: inline-block allows to set a width and height on the element.",
@@ -276,3 +276,4 @@ a:after {
     reference_link: "https://www.w3schools.com/css/css_inline-block.asp",
   },
 ];
+

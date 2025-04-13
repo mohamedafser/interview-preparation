@@ -1,4 +1,4 @@
-import { Box, SxProps, Theme, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import AdbIcon from "@mui/icons-material/Adb";
 
@@ -10,8 +10,7 @@ interface AppLogoPops {
 function AppLogo(props: AppLogoPops) {
   const { mblBoxStyle = { xs: "none", md: "flex" } } = props;
   return (
-    //@ts-expect-error
-    <Box sx={{ display: mblBoxStyle, alignItems: "center" }}>
+    <Box sx={{ display: { xs: mblBoxStyle.xs, md: mblBoxStyle.md }, alignItems: "center" }}>
       <AdbIcon sx={{ mr: 1 }} />
       <Typography
         variant="h6"

@@ -56,8 +56,7 @@ export default function CategoryLayout(props: Props) {
 
   const MenuDrawer = () => {
     const [state, setState] = React.useState<string[]>(["Frontend"]);
-    const menuData = groupBy(menuItems, "techStack");
-    console.log("menuData", menuItems)
+    const menuData: Record<string, Array<{ id: string; name: string; url: string }>> = groupBy(menuItems, "techStack");
 
     const onClickParentMenu = (parentMenu: string) => {
       setState((prevState) => {

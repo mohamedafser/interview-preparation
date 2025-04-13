@@ -73,6 +73,7 @@ export const darkTheme: Theme = createTheme({
     text: {
       primary: "#fff",
       secondary: "hsl(215, 15%, 75%)",
+      //@ts-expect-error: Fix in feature
       tertiary: "hsl(215, 15%, 65%)",
       disabled: "rgba(255, 255, 255, 0.5)",
       icon: "rgba(255, 255, 255, 0.5)",
@@ -88,6 +89,7 @@ export const darkTheme: Theme = createTheme({
       "700": "hsl(215, 15%, 40%)",
       "800": "hsl(215, 15%, 22%)",
       "900": "hsl(215, 15%, 12%)",
+      //@ts-expect-error: Fix in feature
       main: "hsl(215, 15%, 40%)",
       contrastText: "hsl(215, 15%, 50%)",
       A100: "#f5f5f5",

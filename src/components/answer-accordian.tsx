@@ -63,7 +63,7 @@ const AnswerAccordian = (props: TAnswerAccordian) => {
         )}
         {item.code && (
           <SyntaxHighlighter
-            // @ts-ignore
+            // @ts-expect-error
             language={pageName}
             style={codeThemeConfig[themeMode.mode]}
           >

@@ -9,6 +9,7 @@ type QCategories =
   | "express-js"
   | "node-js";
 type JSQuestionType = "THEORY" | "PRATICAL";
+
 export type QuestionType = {
   id: number;
   question: string;

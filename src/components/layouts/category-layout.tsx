@@ -15,7 +15,7 @@ import Toolbar from "@mui/material/Toolbar";
 import { useParams, usePathname } from "next/navigation";
 import { categoryMenu } from "@/data/it-menu";
 import Link from "next/link";
-import { Collapse, Divider, Tooltip, Typography } from "@mui/material";
+import { Collapse, Divider, Typography } from "@mui/material";
 import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import RightHeader from "../right-header";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
@@ -57,6 +57,7 @@ export default function CategoryLayout(props: Props) {
   const MenuDrawer = () => {
     const [state, setState] = React.useState<string[]>(["Frontend"]);
     const menuData = groupBy(menuItems, "techStack");
+    console.log("menuData", menuItems)
 
     const onClickParentMenu = (parentMenu: string) => {
       setState((prevState) => {

@@ -2,10 +2,11 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { QuestionType } from "@/data/datas";
 import { groupBy } from "@/utils/utils";
 import AnswerAccordian from "@/components/answer-accordian";
-
+import { QuestionType } from "@/data/questions/type";
+import ViewFilter from "@/components/view-filter";
+import { Grid2 as Grid } from "@mui/material";
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
@@ -37,10 +38,12 @@ function a11yProps(index: number) {
 
 type JSTabType = {
   datas: QuestionType[];
+  onSwitchView: (view: number) => void;
+  column: number;
 };
 
 export default function JSTab(props: JSTabType) {
-  const { datas } = props;
+  const { datas, onSwitchView, column } = props;
   const [value, setValue] = React.useState(0);
 
   const groupByType = groupBy(datas, "js_qtype");
@@ -55,23 +58,62 @@ export default function JSTab(props: JSTabType) {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 12, md: 10 }}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              {Object.keys(groupByType).map((data, index) => {
+                return <Tab label={data} {...a11yProps(index)} key={data} />;
+              })}
+            </Tabs>
+          </Box>
+        </Grid>
+        <Grid
+          size={{ md: 2 }}
+          sx={{ display: { xs: "none", md: "block" }, textAlign: "right" }}
         >
-          {Object.keys(groupByType).map((data, index) => {
-            return <Tab label={data} {...a11yProps(index)} key={data} />;
-          })}
-        </Tabs>
-      </Box>
+          <ViewFilter onClick={onSwitchView} selected={column} />
+        </Grid>
+      </Grid>
 
       <CustomTabPanel value={value} index={0}>
-        <AnswerAccordian datas={groupByType.THEORY} pageName={"javascript"} />
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            display: "grid",
+            alignSelf: "start",
+            gridTemplateColumns: `repeat(
+                      ${column},
+                      1fr
+                    )`,
+          }}
+        >
+          <AnswerAccordian datas={groupByType.THEORY} pageName={"javascript"} />
+        </Grid>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <AnswerAccordian datas={groupByType.PRATICAL} pageName={"javascript"} />
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            display: "grid",
+            alignSelf: "start",
+            gridTemplateColumns: `repeat(
+                      ${column},
+                      1fr
+                    )`,
+          }}
+        >
+          <AnswerAccordian
+            datas={groupByType.PRATICAL}
+            pageName={"javascript"}
+          />
+        </Grid>
       </CustomTabPanel>
     </Box>
   );

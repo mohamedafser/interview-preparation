@@ -8,6 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import ThemeToggleButton from "../theme-toggle-button";
+import { useRouter } from "next/navigation";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -16,12 +17,21 @@ function RightHeader() {
     null
   );
 
+  const router = useRouter();
+
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    router.push("/auth/sign-in");
+    handleCloseUserMenu();
   };
 
   return (
@@ -49,7 +59,10 @@ function RightHeader() {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
+          <MenuItem
+            key={setting}
+            onClick={setting === "Logout" ? handleLogout : handleCloseUserMenu}
+          >
             <Typography sx={{ textAlign: "center" }}>{setting}</Typography>
           </MenuItem>
         ))}

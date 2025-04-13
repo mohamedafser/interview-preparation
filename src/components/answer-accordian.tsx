@@ -1,4 +1,3 @@
-import { QuestionType } from "@/data/datas";
 import {
   Accordion,
   AccordionDetails,
@@ -12,6 +11,7 @@ import { useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LinkIcon from "@mui/icons-material/Link";
 import Link from "next/link";
+import { QuestionType } from "@/data/questions/type";
 
 const codeThemeConfig = {
   light: oneLight,

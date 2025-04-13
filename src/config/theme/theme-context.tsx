@@ -7,6 +7,7 @@ import React, {
   useState,
   useMemo,
   ReactNode,
+  useEffect,
 } from "react";
 import { ThemeProvider, CssBaseline, Theme } from "@mui/material";
 import { lightTheme, darkTheme } from "../theme";
@@ -35,6 +36,16 @@ export const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
     () => (mode === "light" ? lightTheme : darkTheme),
     [mode]
   );
+
+  // useEffect(() => {
+  //   const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+  //   setMode(prefersDarkMode.matches ? "dark" : "light");
+
+  //   // Optional: Listen for changes in system preference
+  //   prefersDarkMode.addEventListener("change", (e) => {
+  //     setMode(e.matches ? "dark" : "light");
+  //   });
+  // }, []);
 
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme }}>
